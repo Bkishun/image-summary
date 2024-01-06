@@ -1,0 +1,14 @@
+pandas
+numpy
+dill
+Flask
+Werkzeug
+flask
+opencv-python
+pytesseract
+nltk
+spacy
+gensim
+
+# -e .
+# pip install -r requirements.txt

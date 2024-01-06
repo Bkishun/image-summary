@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body>
+    <div class="upload">
+      <h1>File Upload</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input class="fileInput" type="file" name="file" accept=".pdf, .jpg, .jpeg, .png" required />
+        <input class="btn" type="submit" value="Upload" />
+      </form>
+    </div>
+
+    <div class="inputtext">
+      <h1>Input Text</h1>
+      <p>{{text}}</p>
+      <!-- <img src="{{picture}}" alt="Uploaded Image"> -->
+    </div>
+    <div class="summary">
+      <h1>Summary</h1>
+      <p>{{summary}}</p>
+    </div>
+    <button onclick="downloadWordFile()">Download Word File</button>
+    <script>
+      function downloadWordFile() {
+        // Get the text content
+        var textContent = document.querySelector('.inputtext p').textContent;
+        // Create a Blob (Binary Large Object) containing the text content
+        var blob = new Blob([textContent], { type: 'application/msword' });
+
+        // Create a link element
+        var link = document.createElement('a');
+
+        // Set the download attribute and create a download link
+        link.download = 'document.doc';
+        link.href = window.URL.createObjectURL(blob);
+
+        // Append the link to the body
+        document.body.appendChild(link);
+
+        // Trigger a click event on the link to start the download
+        link.click();
+
+        // Remove the link from the DOM
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>
