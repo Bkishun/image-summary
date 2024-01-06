@@ -4,7 +4,7 @@ from src.data_summarization import predict_summary  # You need to implement this
 
 app = Flask(__name__)
 
-# Set the path where uploaded files will be stored
+# Set the path where uploaded files will be stored.
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
